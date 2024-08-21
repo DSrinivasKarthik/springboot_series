@@ -90,28 +90,32 @@ This lifecycle handles the creation of the project's site documentation. It incl
 
 ---
 
-## Incremental Builds
+## Incremental Builds in Gradle
 
 Incremental builds in Gradle refer to a build process where only the parts of the project that have changed are rebuilt, rather than rebuilding the entire project from scratch. This can significantly speed up the build process, especially in large projects.
 
-**What are Incremental Builds?**
+### What are Incremental Builds?
 
-Traditional Build Process: In traditional build tools like Ant (or even Maven to some extent), every time you build the project, the tool will compile all the source files, run all the tests, and package everything, regardless of whether there have been any changes.
+- **Traditional Build Process**: In traditional build tools like Ant (or even Maven to some extent), every time you build the project, the tool will compile all the source files, run all the tests, and package everything, regardless of whether there have been any changes.
 
-Incremental Builds: In an incremental build, the build tool checks which files have changed since the last build. It then only recompiles and reprocesses those changed files, skipping the parts of the project that haven’t changed. This makes the build process faster because it avoids unnecessary work.
+- **Incremental Builds**: In an incremental build, the build tool checks which files have changed since the last build. It then only recompiles and reprocesses those changed files, skipping the parts of the project that haven’t changed. This makes the build process faster because it avoids unnecessary work.
 
-**Why is This Important?**
+### Why is This Important?
+
 In large projects with thousands of files, building everything from scratch can take a long time. Incremental builds help speed up development by reducing the time developers spend waiting for builds to complete.
 
-**Example of Incremental Build in Gradle:**
+### Example of Incremental Build in Gradle
+
 Let’s say you have a project with 100 Java files. You make a small change in one file and then run the build process.
 
-Without Incremental Build: The build tool would recompile all 100 files, rerun all tests, and package the entire application, even though only one file changed.
+- **Without Incremental Build**: The build tool would recompile all 100 files, rerun all tests, and package the entire application, even though only one file changed.
+- **With Incremental Build**: Gradle would detect that only one file was modified. It would only recompile that single file, and only rerun tests that are affected by this change, making the process much faster.
 
-With Incremental Build: Gradle would detect that only one file was modified. It would only recompile that single file, and only rerun tests that are affected by this change, making the process much faster.
+### Why Does Gradle Have Better Incremental Builds?
 
-**Why Does Gradle Have Better Incremental Builds?**
 Gradle is designed with incremental builds in mind. It has sophisticated mechanisms to track changes in files, configurations, and dependencies. This allows it to intelligently skip unnecessary steps in the build process, making it more efficient compared to Maven, which doesn’t have as advanced incremental build capabilities by default.
+
+### Summary
 
 In summary, incremental builds mean faster build times because only the changes in your project are rebuilt, rather than the entire project. This is one of the reasons why Gradle is favored in large projects or in scenarios where build speed is critical.
 
