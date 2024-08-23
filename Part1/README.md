@@ -2,6 +2,9 @@
 ---
 ## Part 01: Introduction to Spring Boot 
 
+We can use Spring Initializr [https://start.spring.io/] to initialize a New Spring Boot Project and configure the data. 
+I use Spring tools Suite.
+
 **Steps:**
 
 First we Create a Maven Project. We provide the Project Coordinates/Metadata (group ID, artifact ID, Name, Description, Package Name and version number(maybe if present) )
